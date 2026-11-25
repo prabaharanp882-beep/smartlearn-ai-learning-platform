@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLearn - Student Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <h2>🎓 SmartLearn</h2>
+
+        <nav>
+            <button onclick="showPage('dashboard')">Dashboard</button>
+            <button onclick="showPage('subjects')">Subjects</button>
+            <button onclick="showPage('planner')">AI Study Planner</button>
+            <button onclick="showPage('quiz')">Online Quiz</button>
+            <button onclick="showPage('notes')">Notes & PDF</button>
+            <button onclick="showPage('progress')">Progress</button>
+            <button onclick="showPage('skills')">Skill Tracker</button>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <header>
+            <h3>Student Learning Dashboard</h3>
+            <p>Welcome back, Student!</p>
+        </header>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page active">
+            <h1>Dashboard</h1>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Subjects</h3>
+                    <h2 id="subjectCount">3</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Study Hours</h3>
+                    <h2>12.5</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Quiz Average</h3>
+                    <h2 id="quizAverage">80%</h2>
+                </div>
+
+                <div class="card">
+                    <h3>Skills</h3>
+                    <h2>4</h2>
+                </div>
+            </div>
+
+            <h2>Today's Tasks</h2>
+            <label><input type="checkbox"> Revise C Programming</label><br>
+            <label><input type="checkbox"> Complete Mathematics</label><br>
+            <label><input type="checkbox"> Study Physics</label>
+        </section>
+
+        <!-- Subjects -->
+        <section id="subjects" class="page">
+            <h1>Subject Selection</h1>
+
+            <div id="subjectList">
+                <label><input type="checkbox" value="C Programming" checked> C Programming</label><br>
+                <label><input type="checkbox" value="Mathematics" checked> Mathematics</label><br>
+                <label><input type="checkbox" value="Physics" checked> Physics</label><br>
+                <label><input type="checkbox" value="Chemistry"> Chemistry</label><br>
+                <label><input type="checkbox" value="Data Analytics"> Data Analytics</label>
+            </div>
+
+            <button onclick="saveSubjects()">Save Subjects</button>
+        </section>
+
+        <!-- Study Planner -->
+        <section id="planner" class="page">
+            <h1>AI Study Planner</h1>
+
+            <input id="studySubject" placeholder="Enter Subject">
+            <input id="studyHours" type="number" placeholder="Available Hours">
+            <input id="studyGoal" placeholder="Enter Your Goal">
+
+            <button onclick="generatePlan()">Generate Plan</button>
+
+            <div id="planResult"></div>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz" class="page">
+            <h1>Online Quiz</h1>
+
+            <p>1. Which language is used for web structure?</p>
+
+            <label><input type="radio" name="q1" value="HTML"> HTML</label><br>
+            <label><input type="radio" name="q1" value="CSS"> CSS</label><br>
+            <label><input type="radio" name="q1" value="Python"> Python</label>
+
+            <p>2. Which language is used for web styling?</p>
+
+            <label><input type="radio" name="q2" value="CSS"> CSS</label><br>
+            <label><input type="radio" name="q2" value="C"> C</label><br>
+            <label><input type="radio" name="q2" value="Java"> Java</label>
+
+            <button onclick="checkQuiz()">Submit Quiz</button>
+
+            <h3 id="quizResult"></h3>
+        </section>
+
+        <!-- Notes -->
+        <section id="notes" class="page">
+            <h1>Notes & PDF Upload</h1>
+
+            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.txt">
+
+            <ul id="fileList"></ul>
+        </section>
+
+        <!-- Progress -->
+        <section id="progress" class="page">
+            <h1>Student Progress</h1>
+
+            <p>C Programming</p>
+            <progress value="75" max="100"></progress>
+
+            <p>Mathematics</p>
+            <progress value="60" max="100"></progress>
+
+            <p>Physics</p>
+            <progress value="45" max="100"></progress>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="page">
+            <h1>Skill Development Tracker</h1>
+
+            <input id="skillName" placeholder="Enter New Skill">
+            <button onclick="addSkill()">Add Skill</button>
+
+            <ul id="skillList">
+                <li>Programming - 70%</li>
+                <li>Communication - 65%</li>
+                <li>Problem Solving - 55%</li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
